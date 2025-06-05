@@ -1,9 +1,6 @@
 # VSCode Context Enhancer
 
-[![Version](https://img.shields.io/visual-studio-marketplace/v/WEBLAZER.vscode-context-enhancer.svg)](https://marketplace.visualstudio.com/items?itemName=WEBLAZER.vscode-context-enhancer)
-[![Installs](https://img.shields.io/visual-studio-marketplace/i/WEBLAZER.vscode-context-enhancer.svg)](https://marketplace.visualstudio.com/items?itemName=WEBLAZER.vscode-context-enhancer)
 [![License](https://img.shields.io/github/license/WEBLAZER/vscode-context-enhancer.svg)](https://github.com/WEBLAZER/vscode-context-enhancer/blob/main/LICENSE)
-[![Build Status](https://github.com/WEBLAZER/vscode-context-enhancer/workflows/CI/badge.svg)](https://github.com/WEBLAZER/vscode-context-enhancer/actions)
 
 Une extension Chrome et VSCode qui capture le contexte de développement web pour améliorer l'expérience de débogage.
 
