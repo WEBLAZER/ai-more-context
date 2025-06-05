@@ -1,0 +1,10 @@
+.vscode/**
+.github/**
+src/**
+tsconfig.json
+.gitignore
+vsc-extension-quickstart.md
+CONTRIBUTING.md
+*.map
+node_modules/**
+.DS_Store 
