@@ -1,5 +1,10 @@
 # VSCode Context Enhancer
 
+[![Version](https://img.shields.io/visual-studio-marketplace/v/WEBLAZER.vscode-context-enhancer.svg)](https://marketplace.visualstudio.com/items?itemName=WEBLAZER.vscode-context-enhancer)
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/WEBLAZER.vscode-context-enhancer.svg)](https://marketplace.visualstudio.com/items?itemName=WEBLAZER.vscode-context-enhancer)
+[![License](https://img.shields.io/github/license/WEBLAZER/vscode-context-enhancer.svg)](https://github.com/WEBLAZER/vscode-context-enhancer/blob/main/LICENSE)
+[![Build Status](https://github.com/WEBLAZER/vscode-context-enhancer/workflows/CI/badge.svg)](https://github.com/WEBLAZER/vscode-context-enhancer/actions)
+
 Une extension Chrome et VSCode qui capture le contexte de développement web pour améliorer l'expérience de débogage.
 
 ## Fonctionnalités
@@ -15,6 +20,14 @@ Une extension Chrome et VSCode qui capture le contexte de développement web pou
 - Erreurs de chargement de ressources (404, erreurs réseau)
 - Erreurs de promesses non gérées
 - Erreurs de style CSS
+
+### Stockage du contexte
+- Crée un dossier `vscode-context`
+- Sauvegarde les fichiers :
+  - `current-context.md` : Contexte au format Markdown
+  - `screenshot.png` : Capture d'écran
+  - `page.html` : HTML brut
+  - `console-errors.json` : Erreurs de la console
 
 ## Installation
 
@@ -32,10 +45,12 @@ Une extension Chrome et VSCode qui capture le contexte de développement web pou
 
 ## Utilisation
 
-1. Démarrez l'extension VSCode
-2. Naviguez sur la page web à déboguer
-3. Cliquez sur l'icône de l'extension Chrome
-4. Le contexte est automatiquement capturé et envoyé à VSCode
+1. Démarrez l'extension avec la commande "Start Context Server"
+2. Le serveur WebSocket démarre sur le port 3000
+3. Naviguez sur la page web à déboguer
+4. Cliquez sur l'icône de l'extension Chrome
+5. Le contexte est automatiquement capturé et envoyé à VSCode
+6. Les fichiers sont sauvegardés dans le dossier `vscode-context`
 
 ## Structure du projet
 
@@ -43,42 +58,14 @@ Une extension Chrome et VSCode qui capture le contexte de développement web pou
 vscode-add-context/
 ├── chrome-extension/     # Extension Chrome
 ├── vscode-extension/     # Extension VSCode
+│   ├── src/
+│   │   ├── extension.ts  # Point d'entrée de l'extension
+│   │   └── server.ts     # Serveur WebSocket
+│   ├── package.json      # Configuration et dépendances
+│   └── tsconfig.json     # Configuration TypeScript
 ├── test/                 # Tests et exemples
 └── vscode-context/       # Dossier de stockage du contexte
 ```
-
-## Évolution du projet
-
-### Version 1.0
-- Capture basique du DOM et des erreurs console
-- Communication WebSocket entre Chrome et VSCode
-- Stockage du contexte dans un dossier dédié
-
-### Améliorations futures
-1. **Validation HTML**
-   - Détection des balises mal fermées
-   - Validation des attributs
-   - Structure HTML
-
-2. **Performance**
-   - Métriques de chargement
-   - Analyse des ressources
-   - First Contentful Paint
-
-3. **Accessibilité**
-   - Vérification des attributs alt
-   - Contraste des couleurs
-   - Structure de navigation
-
-4. **Sécurité**
-   - Mixed Content
-   - CSP violations
-   - Erreurs CORS
-
-5. **Compatibilité**
-   - Support navigateur
-   - Polyfills
-   - API dépréciées
 
 ## Développement
 
@@ -109,6 +96,38 @@ cd vscode-extension
 npm run compile
 ```
 
+### Tests
+1. Appuyez sur F5 dans VSCode pour lancer en mode développement
+2. Vérifiez la réception du contexte
+3. Testez la sauvegarde des fichiers
+
+## Améliorations futures
+
+1. **Interface utilisateur**
+   - Panneau dédié au contexte
+   - Navigation dans les fichiers
+   - Filtrage des erreurs
+
+2. **Intégration IA**
+   - Analyse automatique des erreurs
+   - Suggestions de correction
+   - Documentation contextuelle
+
+3. **Gestion des versions**
+   - Historique du contexte
+   - Comparaison des versions
+   - Restauration du contexte
+
+4. **Personnalisation**
+   - Configuration des types d'erreurs
+   - Filtres personnalisés
+   - Thèmes d'affichage
+
+5. **Performance**
+   - Compression des données
+   - Mise en cache
+   - Optimisation du stockage
+
 ## Contribution
 
 Les contributions sont les bienvenues ! N'hésitez pas à :
@@ -120,4 +139,15 @@ Les contributions sont les bienvenues ! N'hésitez pas à :
 
 ## Licence
 
-MIT 
+MIT - Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+
+## Auteur
+
+[Arthur Ballan](https://github.com/WEBLAZER)
+
+## Support
+
+Si vous rencontrez des problèmes ou avez des suggestions :
+1. Ouvrez une issue sur GitHub
+2. Contactez l'auteur
+3. Consultez la documentation
