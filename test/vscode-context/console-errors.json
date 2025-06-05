@@ -5,26 +5,35 @@
     "line": 0,
     "column": 0,
     "stack": "",
-    "url": "file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/test.html",
-    "timestamp": "2025-06-05T12:22:41.030Z"
+    "url": "file:///Users/arthurballan/Documents/Travail/vscode-context-enhancer/test/test.html",
+    "timestamp": "2025-06-05T13:07:50.251Z"
   },
   {
-    "message": "Failed to load JPG: file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-image.jpg",
+    "message": "Failed to load JPG: file:///Users/arthurballan/Documents/Travail/vscode-context-enhancer/test/invalid-image.jpg",
     "source": "network",
     "line": 110,
     "column": 27,
-    "stack": "Error\n    at HTMLDocument.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:110:27)",
-    "url": "file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-image.jpg",
-    "timestamp": "2025-06-05T12:22:41.030Z"
+    "stack": "Error\n    at HTMLDocument.<anonymous> (chrome-extension://loifkmngpbceplldkgeoklflafgklkna/content.js:110:27)",
+    "url": "file:///Users/arthurballan/Documents/Travail/vscode-context-enhancer/test/invalid-image.jpg",
+    "timestamp": "2025-06-05T13:07:50.251Z"
   },
   {
-    "message": "Failed to load JPG: file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-image.jpg",
+    "message": "Failed to load JPG: file:///Users/arthurballan/Documents/Travail/vscode-context-enhancer/test/invalid-image.jpg",
     "source": "network",
     "line": 131,
     "column": 43,
-    "stack": "Error\n    at HTMLImageElement.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:131:43)",
-    "url": "file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-image.jpg",
-    "timestamp": "2025-06-05T12:22:41.030Z"
+    "stack": "Error\n    at HTMLImageElement.<anonymous> (chrome-extension://loifkmngpbceplldkgeoklflafgklkna/content.js:131:43)",
+    "url": "file:///Users/arthurballan/Documents/Travail/vscode-context-enhancer/test/invalid-image.jpg",
+    "timestamp": "2025-06-05T13:07:50.251Z"
+  },
+  {
+    "message": "Failed to load CSS: https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css",
+    "source": "network",
+    "line": 97,
+    "column": 35,
+    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://loifkmngpbceplldkgeoklflafgklkna/content.js:97:35)",
+    "url": "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css",
+    "timestamp": "2025-06-05T13:07:50.257Z"
   },
   {
     "message": "Error",
@@ -32,26 +41,35 @@
     "line": 0,
     "column": 0,
     "stack": "",
-    "url": "file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/test.html",
-    "timestamp": "2025-06-05T12:22:41.107Z"
+    "url": "file:///Users/arthurballan/Documents/Travail/vscode-context-enhancer/test/test.html",
+    "timestamp": "2025-06-05T13:07:50.257Z"
   },
   {
-    "message": "Failed to load CSS: file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-style.css",
+    "message": "Failed to load CSS: file:///Users/arthurballan/Documents/Travail/vscode-context-enhancer/test/invalid-style.css",
     "source": "network",
     "line": 118,
     "column": 27,
-    "stack": "Error\n    at HTMLDocument.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:118:27)",
-    "url": "file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-style.css",
-    "timestamp": "2025-06-05T12:22:41.107Z"
+    "stack": "Error\n    at HTMLDocument.<anonymous> (chrome-extension://loifkmngpbceplldkgeoklflafgklkna/content.js:118:27)",
+    "url": "file:///Users/arthurballan/Documents/Travail/vscode-context-enhancer/test/invalid-style.css",
+    "timestamp": "2025-06-05T13:07:50.257Z"
   },
   {
-    "message": "Failed to load CSS: file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-style.css",
+    "message": "Failed to load CSS: file:///Users/arthurballan/Documents/Travail/vscode-context-enhancer/test/invalid-style.css",
     "source": "network",
     "line": 143,
     "column": 43,
-    "stack": "Error\n    at HTMLLinkElement.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:143:43)",
-    "url": "file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-style.css",
-    "timestamp": "2025-06-05T12:22:41.108Z"
+    "stack": "Error\n    at HTMLLinkElement.<anonymous> (chrome-extension://loifkmngpbceplldkgeoklflafgklkna/content.js:143:43)",
+    "url": "file:///Users/arthurballan/Documents/Travail/vscode-context-enhancer/test/invalid-style.css",
+    "timestamp": "2025-06-05T13:07:50.257Z"
+  },
+  {
+    "message": "Failed to load JS: https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js",
+    "source": "network",
+    "line": 97,
+    "column": 35,
+    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://loifkmngpbceplldkgeoklflafgklkna/content.js:97:35)",
+    "url": "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js",
+    "timestamp": "2025-06-05T13:07:50.259Z"
   },
   {
     "message": "Error",
@@ -59,25 +77,25 @@
     "line": 0,
     "column": 0,
     "stack": "",
-    "url": "file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/test.html",
-    "timestamp": "2025-06-05T12:22:41.108Z"
+    "url": "file:///Users/arthurballan/Documents/Travail/vscode-context-enhancer/test/test.html",
+    "timestamp": "2025-06-05T13:07:50.259Z"
   },
   {
-    "message": "Failed to load JS: file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-script.js",
+    "message": "Failed to load JS: file:///Users/arthurballan/Documents/Travail/vscode-context-enhancer/test/invalid-script.js",
     "source": "network",
     "line": 114,
     "column": 27,
-    "stack": "Error\n    at HTMLDocument.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:114:27)",
-    "url": "file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-script.js",
-    "timestamp": "2025-06-05T12:22:41.108Z"
+    "stack": "Error\n    at HTMLDocument.<anonymous> (chrome-extension://loifkmngpbceplldkgeoklflafgklkna/content.js:114:27)",
+    "url": "file:///Users/arthurballan/Documents/Travail/vscode-context-enhancer/test/invalid-script.js",
+    "timestamp": "2025-06-05T13:07:50.259Z"
   },
   {
-    "message": "Failed to load JS: file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-script.js",
+    "message": "Failed to load JS: file:///Users/arthurballan/Documents/Travail/vscode-context-enhancer/test/invalid-script.js",
     "source": "network",
     "line": 137,
     "column": 43,
-    "stack": "Error\n    at HTMLScriptElement.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:137:43)",
-    "url": "file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-script.js",
-    "timestamp": "2025-06-05T12:22:41.108Z"
+    "stack": "Error\n    at HTMLScriptElement.<anonymous> (chrome-extension://loifkmngpbceplldkgeoklflafgklkna/content.js:137:43)",
+    "url": "file:///Users/arthurballan/Documents/Travail/vscode-context-enhancer/test/invalid-script.js",
+    "timestamp": "2025-06-05T13:07:50.259Z"
   }
 ]

@@ -6,7 +6,9 @@
         "lib": ["ES2020", "dom"],
         "sourceMap": true,
         "rootDir": "src",
-        "strict": true
+        "strict": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true
     },
     "exclude": ["node_modules", ".vscode-test"]
 } 

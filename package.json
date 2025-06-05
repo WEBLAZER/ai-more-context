@@ -1,0 +1,26 @@
+{
+  "name": "vscode-context-enhancer",
+  "version": "1.0.0",
+  "description": "A VS Code and Chrome extension to enhance context sharing",
+  "private": true,
+  "workspaces": [
+    "vscode-extension",
+    "chrome-extension"
+  ],
+  "scripts": {
+    "test": "npm run test --workspaces",
+    "build": "npm run build --workspaces",
+    "clean": "npm run clean --workspaces"
+  },
+  "keywords": [
+    "vscode",
+    "chrome",
+    "extension",
+    "context"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+} 

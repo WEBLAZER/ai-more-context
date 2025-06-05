@@ -6,7 +6,8 @@
   "permissions": [
     "activeTab",
     "scripting",
-    "webNavigation"
+    "webNavigation",
+    "tabs"
   ],
   "host_permissions": [
     "http://*/*",

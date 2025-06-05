@@ -2,6 +2,13 @@
 
 All notable changes to the "vscode-context-enhancer" extension will be documented in this file.
 
+## [1.0.4] - 2024-03-19
+
+### Fixed
+- Correction de la capture d'écran en ajoutant la permission `tabs`
+- Amélioration de la gestion des erreurs lors de la capture d'écran
+- Spécification explicite de la fenêtre active pour la capture
+
 ## [1.0.3] - 2024-03-19
 
 ### Changed

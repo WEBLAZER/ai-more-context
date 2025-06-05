@@ -31,13 +31,27 @@ connectToServer();
 // Fonction pour capturer l'écran
 async function captureScreenshot(tabId) {
     try {
-        const screenshot = await chrome.tabs.captureVisibleTab(null, {
+        // Récupérer la fenêtre active
+        const window = await chrome.windows.getCurrent();
+        
+        // Capture de l'écran avec la fenêtre spécifiée
+        const screenshot = await chrome.tabs.captureVisibleTab(window.id, {
             format: 'png'
         });
+        
+        if (!screenshot) {
+            throw new Error('La capture d\'écran a retourné null');
+        }
+        
         console.log('Capture d\'écran réussie');
         return screenshot;
     } catch (error) {
         console.error('Erreur lors de la capture d\'écran:', error);
+        if (error.message.includes('permission')) {
+            console.error('Permission manquante pour la capture d\'écran');
+        } else if (error.message.includes('tab')) {
+            console.error('Onglet non trouvé ou inaccessible');
+        }
         return null;
     }
 }

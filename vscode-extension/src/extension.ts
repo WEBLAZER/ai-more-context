@@ -97,6 +97,8 @@ async function startServer() {
 }
 
 export async function activate(context: vscode.ExtensionContext) {
+    console.log('Extension VSCode Context Enhancer activée');
+
     // Création de l'élément de la barre d'état
     statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
     statusBarItem.command = 'vscode-context-enhancer.startServer';
@@ -111,11 +113,9 @@ export async function activate(context: vscode.ExtensionContext) {
         }
     }
 
-    // Démarrer automatiquement le serveur
-    await startServer();
-
-    // Commande pour démarrer le serveur
+    // Enregistrer les commandes
     let startServerCommand = vscode.commands.registerCommand('vscode-context-enhancer.startServer', async () => {
+        console.log('Commande startServer exécutée');
         if (server) {
             vscode.window.showInformationMessage('La capture de contexte est déjà active');
             return;
@@ -123,8 +123,8 @@ export async function activate(context: vscode.ExtensionContext) {
         await startServer();
     });
 
-    // Commande pour arrêter le serveur
     let stopServerCommand = vscode.commands.registerCommand('vscode-context-enhancer.stopServer', () => {
+        console.log('Commande stopServer exécutée');
         if (server) {
             server.close(() => {
                 server = undefined;
@@ -134,7 +134,11 @@ export async function activate(context: vscode.ExtensionContext) {
         }
     });
 
+    // Ajouter les commandes aux subscriptions
     context.subscriptions.push(startServerCommand, stopServerCommand);
+
+    // Démarrer automatiquement le serveur
+    await startServer();
 }
 
 function processContext(context: Context) {

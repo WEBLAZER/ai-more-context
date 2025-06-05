@@ -1,48 +1,48 @@
 # VSCode Extension - VSCode Context Enhancer
 
 ## Description
-VSCode extension that receives and displays web development context captured by the corresponding Chrome extension.
+Extension VSCode qui reçoit et affiche le contexte de développement web capturé par l'extension Chrome correspondante.
 
-## Features
+## Fonctionnalités
 
-### Context Reception
-- **DOM**: Complete HTML structure
-- **Console**: Errors and warnings
-- **Resources**: Resource status
-- **Screenshot**: Screen capture
+### Réception du contexte
+- **DOM** : Structure HTML complète
+- **Console** : Erreurs et avertissements
+- **Ressources** : État des ressources
+- **Screenshot** : Capture d'écran
 
-### Context Storage
-- Creates `vscode-context` folder
-- Saves files:
-  - `current-context.md`: Context in Markdown format
-  - `screenshot.png`: Screen capture
-  - `page.html`: Raw HTML
-  - `console-errors.json`: Console errors
+### Stockage du contexte
+- Crée un dossier `vscode-context`
+- Sauvegarde les fichiers :
+  - `current-context.md` : Contexte au format Markdown
+  - `screenshot.png` : Capture d'écran
+  - `page.html` : HTML brut
+  - `console-errors.json` : Erreurs de la console
 
 ## Installation
 
-1. Open VSCode
-2. Press `Cmd+Shift+P` (Mac) or `Ctrl+Shift+P` (Windows/Linux)
-3. Type "Extensions: Install from VSIX"
-4. Select the extension's `.vsix` file
+1. Ouvrez VSCode
+2. Appuyez sur `Cmd+Shift+P` (Mac) ou `Ctrl+Shift+P` (Windows/Linux)
+3. Tapez "Extensions: Install from VSIX"
+4. Sélectionnez le fichier `.vsix` de l'extension
 
-## Usage
+## Utilisation
 
-1. Start the extension with the "Start Context Server" command
-2. WebSocket server starts on port 3000
-3. Context is automatically received from Chrome extension
-4. Files are saved in the `vscode-context` folder
+1. Démarrez l'extension avec la commande "Start Context Server"
+2. Le serveur WebSocket démarre sur le port 3000
+3. Le contexte est automatiquement reçu de l'extension Chrome
+4. Les fichiers sont sauvegardés dans le dossier `vscode-context`
 
-## Development
+## Développement
 
-### File Structure
+### Structure des fichiers
 ```
 vscode-extension/
 ├── src/
-│   ├── extension.ts     # Extension entry point
-│   └── server.ts        # WebSocket server
-├── package.json         # Configuration and dependencies
-└── tsconfig.json        # TypeScript configuration
+│   ├── extension.ts     # Point d'entrée de l'extension
+│   └── server.ts        # Serveur WebSocket
+├── package.json         # Configuration et dépendances
+└── tsconfig.json        # Configuration TypeScript
 ```
 
 ### Compilation
@@ -51,60 +51,22 @@ npm install
 npm run compile
 ```
 
-### Testing
-1. Press F5 in VSCode to launch in development mode
-2. Check context reception
-3. Test file saving
+### Tests
+1. Appuyez sur F5 dans VSCode pour lancer en mode développement
+2. Vérifiez la réception du contexte
+3. Testez la sauvegarde des fichiers
 
-## Future Improvements
+## Licence
 
-1. **User Interface**
-   - Dedicated context panel
-   - File navigation
-   - Error filtering
+MIT - Voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
-2. **AI Integration**
-   - Automatic error analysis
-   - Correction suggestions
-   - Contextual documentation
-
-3. **Version Management**
-   - Context history
-   - Version comparison
-   - Context restoration
-
-4. **Customization**
-   - Error type configuration
-   - Custom filters
-   - Display themes
-
-5. **Performance**
-   - Data compression
-   - Caching
-   - Storage optimization
-
-## Contributing
-
-Contributions are welcome! Feel free to:
-
-1. Fork the project
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Open a Pull Request
-
-## License
-
-MIT - See [LICENSE](LICENSE) file for details.
-
-## Author
+## Auteur
 
 [Arthur Ballan](https://github.com/WEBLAZER)
 
 ## Support
 
-If you encounter any issues or have suggestions, feel free to:
-
-1. Open an issue on GitHub
-2. Contact the author
-3. Check the documentation 
+Si vous rencontrez des problèmes ou avez des suggestions :
+1. Ouvrez une issue sur GitHub
+2. Contactez l'auteur
+3. Consultez la documentation 

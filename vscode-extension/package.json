@@ -2,7 +2,7 @@
   "name": "vscode-context-enhancer",
   "displayName": "VSCode Context Enhancer",
   "description": "Capture web development context (DOM, console errors, resources) to enhance debugging experience in VSCode",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "publisher": "WEBLAZER",
   "engines": {
     "vscode": "^1.60.0"
@@ -26,8 +26,7 @@
     "theme": "dark"
   },
   "activationEvents": [
-    "onCommand:vscode-context-enhancer.startServer",
-    "onCommand:vscode-context-enhancer.stopServer"
+    "onStartupFinished"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -65,13 +64,15 @@
     "@types/glob": "^7.1.3",
     "@types/mocha": "^8.2.2",
     "@types/node": "14.x",
+    "@types/ws": "^8.5.10",
     "eslint": "^7.27.0",
     "@typescript-eslint/eslint-plugin": "^4.26.0",
     "@typescript-eslint/parser": "^4.26.0",
     "glob": "^7.1.7",
     "mocha": "^8.4.0",
     "typescript": "^4.3.2",
-    "vscode-test": "^1.5.2"
+    "vscode-test": "^1.5.2",
+    "ws": "^8.16.0"
   },
   "repository": {
     "type": "git",
