@@ -1,7 +1,5 @@
 # VSCode Context Enhancer
 
-[![License](https://img.shields.io/github/license/WEBLAZER/vscode-context-enhancer.svg)](https://github.com/WEBLAZER/vscode-context-enhancer/blob/main/LICENSE)
-
 Une extension Chrome et VSCode qui capture le contexte de développement web pour améliorer l'expérience de débogage.
 
 ## Fonctionnalités
