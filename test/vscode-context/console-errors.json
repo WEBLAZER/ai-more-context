@@ -1,209 +1,83 @@
 [
   {
-    "message": "Failed to load CSS: https://github.githubassets.com/assets/primer-b8b91660c29d.css",
-    "source": "network",
-    "line": 97,
-    "column": 35,
-    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:97:35)",
-    "url": "https://github.githubassets.com/assets/primer-b8b91660c29d.css",
-    "timestamp": "2025-06-05T11:43:59.276Z"
+    "message": "Error",
+    "source": "uncaught",
+    "line": 0,
+    "column": 0,
+    "stack": "",
+    "url": "file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/test.html",
+    "timestamp": "2025-06-05T12:22:41.030Z"
   },
   {
-    "message": "Failed to load CSS: https://github.githubassets.com/assets/repository-197a21528ff0.css",
+    "message": "Failed to load JPG: file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-image.jpg",
     "source": "network",
-    "line": 97,
-    "column": 35,
-    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:97:35)",
-    "url": "https://github.githubassets.com/assets/repository-197a21528ff0.css",
-    "timestamp": "2025-06-05T11:43:59.276Z"
+    "line": 110,
+    "column": 27,
+    "stack": "Error\n    at HTMLDocument.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:110:27)",
+    "url": "file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-image.jpg",
+    "timestamp": "2025-06-05T12:22:41.030Z"
   },
   {
-    "message": "Failed to load JS: https://github.githubassets.com/assets/chunk-node_modules_scroll-anchoring_dist_scroll-anchoring_esm_js-app_components_notifications_notif-ab7b66-b40cd5a66008.js",
+    "message": "Failed to load JPG: file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-image.jpg",
     "source": "network",
-    "line": 97,
-    "column": 35,
-    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:97:35)",
-    "url": "https://github.githubassets.com/assets/chunk-node_modules_scroll-anchoring_dist_scroll-anchoring_esm_js-app_components_notifications_notif-ab7b66-b40cd5a66008.js",
-    "timestamp": "2025-06-05T11:43:59.304Z"
+    "line": 131,
+    "column": 43,
+    "stack": "Error\n    at HTMLImageElement.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:131:43)",
+    "url": "file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-image.jpg",
+    "timestamp": "2025-06-05T12:22:41.030Z"
   },
   {
-    "message": "Failed to load JS: https://github.githubassets.com/assets/chunk-app_components_primer_experimental_select-panel-element_ts-7386b13467b2.js",
-    "source": "network",
-    "line": 97,
-    "column": 35,
-    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:97:35)",
-    "url": "https://github.githubassets.com/assets/chunk-app_components_primer_experimental_select-panel-element_ts-7386b13467b2.js",
-    "timestamp": "2025-06-05T11:43:59.304Z"
+    "message": "Error",
+    "source": "uncaught",
+    "line": 0,
+    "column": 0,
+    "stack": "",
+    "url": "file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/test.html",
+    "timestamp": "2025-06-05T12:22:41.107Z"
   },
   {
-    "message": "Failed to load JS: https://github.githubassets.com/assets/chunk-app_components_primer_experimental_toggle-switch-element_ts-670c71d392c6.js",
+    "message": "Failed to load CSS: file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-style.css",
     "source": "network",
-    "line": 97,
-    "column": 35,
-    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:97:35)",
-    "url": "https://github.githubassets.com/assets/chunk-app_components_primer_experimental_toggle-switch-element_ts-670c71d392c6.js",
-    "timestamp": "2025-06-05T11:43:59.304Z"
+    "line": 118,
+    "column": 27,
+    "stack": "Error\n    at HTMLDocument.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:118:27)",
+    "url": "file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-style.css",
+    "timestamp": "2025-06-05T12:22:41.107Z"
   },
   {
-    "message": "Failed to load JS: https://github.githubassets.com/assets/chunk-app_components_search_custom-scopes-element_ts-abc100eaa2cb.js",
+    "message": "Failed to load CSS: file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-style.css",
     "source": "network",
-    "line": 97,
-    "column": 35,
-    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:97:35)",
-    "url": "https://github.githubassets.com/assets/chunk-app_components_search_custom-scopes-element_ts-abc100eaa2cb.js",
-    "timestamp": "2025-06-05T11:43:59.304Z"
+    "line": 143,
+    "column": 43,
+    "stack": "Error\n    at HTMLLinkElement.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:143:43)",
+    "url": "file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-style.css",
+    "timestamp": "2025-06-05T12:22:41.108Z"
   },
   {
-    "message": "Failed to load JS: https://github.githubassets.com/assets/vendors-node_modules_github_combobox-nav_dist_index_js-node_modules_github_jtml_lib_index_js-b4ac5ae3158a.js",
-    "source": "network",
-    "line": 97,
-    "column": 35,
-    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:97:35)",
-    "url": "https://github.githubassets.com/assets/vendors-node_modules_github_combobox-nav_dist_index_js-node_modules_github_jtml_lib_index_js-b4ac5ae3158a.js",
-    "timestamp": "2025-06-05T11:43:59.304Z"
+    "message": "Error",
+    "source": "uncaught",
+    "line": 0,
+    "column": 0,
+    "stack": "",
+    "url": "file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/test.html",
+    "timestamp": "2025-06-05T12:22:41.108Z"
   },
   {
-    "message": "Failed to load JS: https://github.githubassets.com/assets/ui_packages_paths_index_ts-e63bddbe6b3d.js",
+    "message": "Failed to load JS: file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-script.js",
     "source": "network",
-    "line": 97,
-    "column": 35,
-    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:97:35)",
-    "url": "https://github.githubassets.com/assets/ui_packages_paths_index_ts-e63bddbe6b3d.js",
-    "timestamp": "2025-06-05T11:43:59.304Z"
+    "line": 114,
+    "column": 27,
+    "stack": "Error\n    at HTMLDocument.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:114:27)",
+    "url": "file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-script.js",
+    "timestamp": "2025-06-05T12:22:41.108Z"
   },
   {
-    "message": "Failed to load JS: https://github.githubassets.com/assets/ui_packages_query-builder-element_query-builder-element_ts-b492d6900d5e.js",
+    "message": "Failed to load JS: file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-script.js",
     "source": "network",
-    "line": 97,
-    "column": 35,
-    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:97:35)",
-    "url": "https://github.githubassets.com/assets/ui_packages_query-builder-element_query-builder-element_ts-b492d6900d5e.js",
-    "timestamp": "2025-06-05T11:43:59.304Z"
-  },
-  {
-    "message": "Failed to load JS: https://github.githubassets.com/assets/app_assets_modules_github_blob-anchor_ts-ui_packages_code-nav_code-nav_ts-ui_packages_filter--8253c1-91468a3354f9.js",
-    "source": "network",
-    "line": 97,
-    "column": 35,
-    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:97:35)",
-    "url": "https://github.githubassets.com/assets/app_assets_modules_github_blob-anchor_ts-ui_packages_code-nav_code-nav_ts-ui_packages_filter--8253c1-91468a3354f9.js",
-    "timestamp": "2025-06-05T11:43:59.304Z"
-  },
-  {
-    "message": "Failed to load JS: https://github.githubassets.com/assets/chunk-ui_packages_hydro-analytics_hydro-analytics_ts-ui_packages_jump-to-element_model_ts-771dc2835082.js",
-    "source": "network",
-    "line": 97,
-    "column": 35,
-    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:97:35)",
-    "url": "https://github.githubassets.com/assets/chunk-ui_packages_hydro-analytics_hydro-analytics_ts-ui_packages_jump-to-element_model_ts-771dc2835082.js",
-    "timestamp": "2025-06-05T11:43:59.304Z"
-  },
-  {
-    "message": "Failed to load JS: https://github.githubassets.com/assets/chunk-app_components_search_qbsearch-input-element_ts-5e9db93dc489.js",
-    "source": "network",
-    "line": 97,
-    "column": 35,
-    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:97:35)",
-    "url": "https://github.githubassets.com/assets/chunk-app_components_search_qbsearch-input-element_ts-5e9db93dc489.js",
-    "timestamp": "2025-06-05T11:43:59.304Z"
-  },
-  {
-    "message": "Failed to load JS: https://github.githubassets.com/assets/chunk-app_components_site_header_deferred-side-panel-element_ts-7afdd44c66a7.js",
-    "source": "network",
-    "line": 97,
-    "column": 35,
-    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:97:35)",
-    "url": "https://github.githubassets.com/assets/chunk-app_components_site_header_deferred-side-panel-element_ts-7afdd44c66a7.js",
-    "timestamp": "2025-06-05T11:43:59.304Z"
-  },
-  {
-    "message": "Failed to load JS: https://github.githubassets.com/assets/chunk-app_components_site_header_notification-indicator-element_ts-11203f40b597.js",
-    "source": "network",
-    "line": 97,
-    "column": 35,
-    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:97:35)",
-    "url": "https://github.githubassets.com/assets/chunk-app_components_site_header_notification-indicator-element_ts-11203f40b597.js",
-    "timestamp": "2025-06-05T11:43:59.304Z"
-  },
-  {
-    "message": "Failed to load JS: https://github.githubassets.com/assets/chunk-vendors-node_modules_github_mini-throttle_dist_decorators_js-node_modules_github_jtml_lib_ind-5c8d7e-a00f49f7035f.js",
-    "source": "network",
-    "line": 97,
-    "column": 35,
-    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:97:35)",
-    "url": "https://github.githubassets.com/assets/chunk-vendors-node_modules_github_mini-throttle_dist_decorators_js-node_modules_github_jtml_lib_ind-5c8d7e-a00f49f7035f.js",
-    "timestamp": "2025-06-05T11:43:59.304Z"
-  },
-  {
-    "message": "Failed to load JS: https://github.githubassets.com/assets/chunk-ui_packages_context-region-element_element-entry_ts-22e6d973eca4.js",
-    "source": "network",
-    "line": 97,
-    "column": 35,
-    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:97:35)",
-    "url": "https://github.githubassets.com/assets/chunk-ui_packages_context-region-element_element-entry_ts-22e6d973eca4.js",
-    "timestamp": "2025-06-05T11:43:59.304Z"
-  },
-  {
-    "message": "Failed to load JS: https://github.githubassets.com/assets/ui_packages_cookie-consent_cookie-consent_ts-330aa8b0aa80.js",
-    "source": "network",
-    "line": 97,
-    "column": 35,
-    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:97:35)",
-    "url": "https://github.githubassets.com/assets/ui_packages_cookie-consent_cookie-consent_ts-330aa8b0aa80.js",
-    "timestamp": "2025-06-05T11:43:59.304Z"
-  },
-  {
-    "message": "Failed to load JS: https://github.githubassets.com/assets/chunk-ui_packages_ghcc-consent-element_element-entry_ts-ui_packages_promise-with-resolvers-polyfill-e4d890-cf151437c788.js",
-    "source": "network",
-    "line": 97,
-    "column": 35,
-    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:97:35)",
-    "url": "https://github.githubassets.com/assets/chunk-ui_packages_ghcc-consent-element_element-entry_ts-ui_packages_promise-with-resolvers-polyfill-e4d890-cf151437c788.js",
-    "timestamp": "2025-06-05T11:43:59.304Z"
-  },
-  {
-    "message": "Failed to load JS: https://github.githubassets.com/assets/chunk-ui_packages_hydro-analytics_hydro-analytics_ts-ui_packages_query-builder-element_element-entry_ts-f1861fedcd74.js",
-    "source": "network",
-    "line": 97,
-    "column": 35,
-    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:97:35)",
-    "url": "https://github.githubassets.com/assets/chunk-ui_packages_hydro-analytics_hydro-analytics_ts-ui_packages_query-builder-element_element-entry_ts-f1861fedcd74.js",
-    "timestamp": "2025-06-05T11:43:59.304Z"
-  },
-  {
-    "message": "Failed to load JS: https://github.githubassets.com/assets/chunk-ui_packages_cookie-consent-link-element_element-entry_ts-ui_packages_promise-with-resolvers-p-7b7d42-fbf36848c593.js",
-    "source": "network",
-    "line": 97,
-    "column": 35,
-    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:97:35)",
-    "url": "https://github.githubassets.com/assets/chunk-ui_packages_cookie-consent-link-element_element-entry_ts-ui_packages_promise-with-resolvers-p-7b7d42-fbf36848c593.js",
-    "timestamp": "2025-06-05T11:43:59.304Z"
-  },
-  {
-    "message": "Failed to load JS: https://github.githubassets.com/assets/chunk-ui_packages_react-partial-anchor-element_element-entry_ts-4fea8fb23f5c.js",
-    "source": "network",
-    "line": 97,
-    "column": 35,
-    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:97:35)",
-    "url": "https://github.githubassets.com/assets/chunk-ui_packages_react-partial-anchor-element_element-entry_ts-4fea8fb23f5c.js",
-    "timestamp": "2025-06-05T11:43:59.304Z"
-  },
-  {
-    "message": "Failed to load JS: https://github.githubassets.com/assets/chunk-ui_packages_webauthn-get-element_element-entry_ts-c4e5a9b4f95a.js",
-    "source": "network",
-    "line": 97,
-    "column": 35,
-    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:97:35)",
-    "url": "https://github.githubassets.com/assets/chunk-ui_packages_webauthn-get-element_element-entry_ts-c4e5a9b4f95a.js",
-    "timestamp": "2025-06-05T11:43:59.304Z"
-  },
-  {
-    "message": "Failed to load JS: https://github.githubassets.com/assets/chunk-ui_packages_site-header-logged-in-user-menu-element_element-entry_ts-a6002df55e26.js",
-    "source": "network",
-    "line": 97,
-    "column": 35,
-    "stack": "Error\n    at PerformanceObserver.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:97:35)",
-    "url": "https://github.githubassets.com/assets/chunk-ui_packages_site-header-logged-in-user-menu-element_element-entry_ts-a6002df55e26.js",
-    "timestamp": "2025-06-05T11:43:59.305Z"
+    "line": 137,
+    "column": 43,
+    "stack": "Error\n    at HTMLScriptElement.<anonymous> (chrome-extension://ljbnaccpkkcldccopjagekkhpjppighl/content.js:137:43)",
+    "url": "file:///Users/arthurballan/Documents/Travail/vscode-add-context/test/invalid-script.js",
+    "timestamp": "2025-06-05T12:22:41.108Z"
   }
 ]
