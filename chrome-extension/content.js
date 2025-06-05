@@ -226,18 +226,31 @@
             console.log('Connecté au serveur VSCode');
             // Capture initiale
             captureContext();
+            // Mettre à jour le statut
+            chrome.runtime.sendMessage({action: 'updateStatus', connected: true});
         };
 
         ws.onclose = () => {
             console.log('Déconnecté du serveur VSCode');
+            // Mettre à jour le statut
+            chrome.runtime.sendMessage({action: 'updateStatus', connected: false});
             // Tentative de reconnexion après 5 secondes
             setTimeout(connectWebSocket, 5000);
         };
 
         ws.onerror = (error) => {
             console.error('Erreur WebSocket:', error);
+            // Mettre à jour le statut
+            chrome.runtime.sendMessage({action: 'updateStatus', connected: false});
         };
     }
+
+    // Écouter les messages du popup
+    chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+        if (request.action === 'getStatus') {
+            sendResponse({connected: ws && ws.readyState === WebSocket.OPEN});
+        }
+    });
 
     // Capture du contexte à chaque chargement de page
     document.addEventListener('DOMContentLoaded', () => {

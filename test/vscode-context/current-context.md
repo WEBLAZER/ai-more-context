@@ -5,7 +5,7 @@
 - Titre: Test VSCode Context Enhancer
 
 ## Structure du DOM
-- Nombre total d'éléments: 24
+- Nombre total d'éléments: 23
 - Scripts: 3
 - Styles: 2
 - Images: 2

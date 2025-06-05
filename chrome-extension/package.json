@@ -1,0 +1,12 @@
+{
+  "name": "chrome-extension",
+  "version": "1.0.0",
+  "description": "## Description Extension Chrome qui capture le contexte de développement web et l'envoie à VSCode pour améliorer l'expérience de débogage.",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

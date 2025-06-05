@@ -8,39 +8,31 @@
             padding: 15px;
             font-family: Arial, sans-serif;
         }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-bottom: 10px;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
         .status {
             margin-top: 10px;
             padding: 10px;
             border-radius: 4px;
-            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
         }
-        .success {
-            background-color: #dff0d8;
-            color: #3c763d;
+        .status-text {
+            margin: 0;
+            font-size: 14px;
         }
-        .error {
-            background-color: #f2dede;
-            color: #a94442;
+        .info {
+            font-size: 12px;
+            color: #6c757d;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
     <h2>VSCode Context Enhancer</h2>
-    <button id="captureButton">Capturer le contexte</button>
-    <div id="status" class="status"></div>
+    <div id="status" class="status">
+        <p class="status-text">Extension active</p>
+    </div>
+    <p class="info">L'extension capture automatiquement le contexte de la page et l'envoie à VSCode.</p>
     <script src="popup.js"></script>
 </body>
 </html> 

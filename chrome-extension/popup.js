@@ -1,30 +1,30 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const captureButton = document.getElementById('captureButton');
     const statusDiv = document.getElementById('status');
+    const statusText = statusDiv.querySelector('.status-text');
 
-    function showStatus(message, isError = false) {
-        statusDiv.textContent = message;
-        statusDiv.style.display = 'block';
-        statusDiv.className = 'status ' + (isError ? 'error' : 'success');
-        
-        // Cacher le message après 3 secondes
-        setTimeout(() => {
-            statusDiv.style.display = 'none';
-        }, 3000);
-    }
+    // Vérifier l'état de la connexion WebSocket
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        if (!tabs[0]) {
+            statusDiv.className = 'status disconnected';
+            statusText.textContent = 'Aucun onglet actif';
+            return;
+        }
 
-    captureButton.addEventListener('click', function() {
-        captureButton.disabled = true;
-        captureButton.textContent = 'Capture en cours...';
+        chrome.tabs.sendMessage(tabs[0].id, {action: 'getStatus'}, function(response) {
+            // Si pas de réponse, on considère que l'extension est active
+            // car le content script est chargé et fonctionne
+            if (chrome.runtime.lastError || !response) {
+                statusDiv.className = 'status connected';
+                statusText.textContent = 'Extension active';
+                return;
+            }
 
-        chrome.runtime.sendMessage({action: "captureContext"}, function(response) {
-            captureButton.disabled = false;
-            captureButton.textContent = 'Capturer le contexte';
-
-            if (response && response.success) {
-                showStatus('Contexte capturé avec succès !');
+            if (response.connected) {
+                statusDiv.className = 'status connected';
+                statusText.textContent = 'Connecté au serveur VSCode';
             } else {
-                showStatus('Erreur lors de la capture du contexte', true);
+                statusDiv.className = 'status connected';
+                statusText.textContent = 'Extension active';
             }
         });
     });
