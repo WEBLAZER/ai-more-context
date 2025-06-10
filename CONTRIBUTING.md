@@ -1,148 +1,140 @@
-# Guide de Contribution
+# Contributing Guide
 
-Merci de votre intérêt pour contribuer à VSCode Context Enhancer ! Ce document vous guidera à travers le processus de contribution.
+Thank you for your interest in contributing to AI More Context! This document provides guidelines and instructions for contributing.
 
-## Table des matières
-- [Workflow de développement](#workflow-de-développement)
-- [Conventions de code](#conventions-de-code)
-- [Gestion des versions](#gestion-des-versions)
-- [Processus de publication](#processus-de-publication)
-- [Tests](#tests)
-- [Documentation](#documentation)
+## Getting Started
 
-## Workflow de développement
-
-### 1. Configuration initiale
+### 1. Setup
 ```bash
-# Cloner le repository
-git clone https://github.com/WEBLAZER/vscode-context-enhancer.git
-cd vscode-context-enhancer
+# Clone the repository
+git clone https://github.com/WEBLAZER/ai-more-context.git
+cd ai-more-context
 
-# Installer les dépendances
+# Install dependencies
 npm install
 ```
 
-### 2. Créer une branche
+### 2. Create a Branch
 ```bash
-# Créer une nouvelle branche pour votre fonctionnalité
-git checkout -b feature/nom-de-votre-fonctionnalite
+# Create a new branch for your feature
+git checkout -b feature/your-feature-name
 
-# Pour une correction de bug
-git checkout -b fix/nom-du-bug
+# For bug fixes
+git checkout -b fix/bug-name
 ```
 
-### 3. Développement
-- Faites vos modifications
-- Suivez les conventions de code
-- Testez vos changements
-- Compilez l'extension : `npm run compile`
+### 3. Development
+- Make your changes
+- Follow code conventions
+- Test your changes
+- Compile the extension: `npm run compile`
 
 ### 4. Commits
 ```bash
-# Voir les fichiers modifiés
+# View modified files
 git status
 
-# Ajouter les fichiers
+# Add files
 git add .
 
-# Créer un commit
-git commit -m "Description claire de vos modifications"
+# Create a commit
+git commit -m "Clear description of your changes"
 ```
 
 ### 5. Pull Request
-1. Poussez votre branche : `git push origin feature/nom-de-votre-fonctionnalite`
-2. Créez une Pull Request sur GitHub
-3. Décrivez vos modifications
-4. Attendez la review
+1. Push your branch: `git push origin feature/your-feature-name`
+2. Create a Pull Request on GitHub
+3. Describe your changes
+4. Wait for review
 
-## Conventions de code
+## Code Conventions
 
 ### TypeScript
-- Utilisez le style de code TypeScript standard
-- Documentez les fonctions et classes
-- Évitez les `any`
-- Utilisez les types stricts
+- Use standard TypeScript code style
+- Document functions and classes
+- Avoid using `any`
+- Use strict types
 
-### Messages de commit
-Format : `type(scope): description`
+### Commit Messages
+Format: `type(scope): description`
 
-Types :
-- `feat`: Nouvelle fonctionnalité
-- `fix`: Correction de bug
+Types:
+- `feat`: New feature
+- `fix`: Bug fix
 - `docs`: Documentation
-- `style`: Formatage
+- `style`: Formatting
 - `refactor`: Refactoring
 - `test`: Tests
 - `chore`: Maintenance
 
-Exemple :
+Example:
 ```
 feat(capture): add screenshot capture functionality
 fix(websocket): handle connection errors
 docs(readme): update installation instructions
 ```
 
-## Gestion des versions
+## Version Management
 
-Nous suivons le [Semantic Versioning](https://semver.org/) :
+We follow [Semantic Versioning](https://semver.org/):
 
 - `MAJOR.MINOR.PATCH`
-  - MAJOR : Changements incompatibles
-  - MINOR : Nouvelles fonctionnalités compatibles
-  - PATCH : Corrections de bugs compatibles
+  - MAJOR: Incompatible changes
+  - MINOR: Compatible new features
+  - PATCH: Compatible bug fixes
 
-### Mise à jour de la version
-1. Mettre à jour `package.json`
-2. Mettre à jour `CHANGELOG.md`
-3. Créer un tag Git
+### Version Update
+1. Update `package.json`
+2. Update `CHANGELOG.md`
+3. Create Git tag
 
-## Processus de publication
+## Publishing Process
 
-1. Mettre à jour la version dans `package.json`
-2. Mettre à jour le `CHANGELOG.md`
-3. Compiler : `npm run compile`
-4. Publier : `vsce publish -p VOTRE_TOKEN`
+1. Update version in `package.json`
+2. Update `CHANGELOG.md`
+3. Compile: `npm run compile`
+4. Publish: `vsce publish -p YOUR_TOKEN`
 
-## Tests
+## Testing
 
-### Tests unitaires
+### Unit Tests
 ```bash
-# Lancer les tests
+# Run tests
 npm test
 
-# Lancer les tests en mode watch
+# Run tests in watch mode
 npm run test:watch
 ```
 
-### Tests manuels
-1. Compiler : `npm run compile`
-2. Lancer en mode debug (F5 dans VSCode)
-3. Tester les fonctionnalités
+### Manual Testing
+1. Compile: `npm run compile`
+2. Launch in debug mode (F5 in VSCode)
+3. Test features
 
 ## Documentation
 
-### Mise à jour de la documentation
-- README.md : Documentation principale
-- CHANGELOG.md : Historique des versions
-- CONTRIBUTING.md : Guide de contribution
-- Code : Commentaires et JSDoc
+### Updating Documentation
+- README.md: Main documentation
+- CHANGELOG.md: Version history
+- CONTRIBUTING.md: Contributing guide
+- Code: Comments and JSDoc
 
-### Format de documentation
+### Documentation Format
 ```typescript
 /**
- * Description de la fonction
- * @param {Type} paramName - Description du paramètre
- * @returns {Type} Description du retour
+ * Function description
+ * @param {Type} paramName - Parameter description
+ * @returns {Type} Return description
  */
 ```
 
-## Questions et Support
+## Questions and Support
 
-Si vous avez des questions :
-1. Consultez la documentation
-2. Ouvrez une issue sur GitHub
-3. Contactez les mainteneurs
+If you have questions:
+1. Check the documentation
+2. Open an issue on GitHub
+3. Contact maintainers
 
-## Licence
+## License
 
-En contribuant, vous acceptez que vos contributions soient sous la même licence MIT que le projet. 
+By contributing, you agree that your contributions will be licensed under the same MIT license as the project.

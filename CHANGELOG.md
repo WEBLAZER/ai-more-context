@@ -1,43 +1,43 @@
 # Change Log
 
-All notable changes to the "vscode-context-enhancer" extension will be documented in this file.
+All notable changes to the "ai-more-context" extension will be documented in this file.
 
 ## [1.0.4] - 2024-03-19
 
 ### Fixed
-- Correction de la capture d'écran en ajoutant la permission `tabs`
-- Amélioration de la gestion des erreurs lors de la capture d'écran
-- Spécification explicite de la fenêtre active pour la capture
+- Fixed screenshot capture by adding the `tabs` permission
+- Improved error handling during screenshot capture
+- Explicit specification of the active window for capture
 
 ## [1.0.3] - 2024-03-19
 
 ### Changed
-- Nettoyage de la structure du projet
-- Suppression des fichiers de développement inutiles
-- Optimisation du package VSIX avec .vscodeignore
+- Cleaned up project structure
+- Removed unnecessary development files
+- Optimized VSIX package with .vscodeignore
 
 ## [1.0.2] - 2024-03-19
 
 ### Added
-- Support des erreurs de chargement de ressources
-- Capture des erreurs de promesses non gérées
-- Capture des erreurs de style CSS
+- Added support for resource loading errors
+- Added capture of unhandled promise errors
+- Added capture of CSS style errors
 
 ## [1.0.1] - 2024-03-19
 
 ### Changed
-- Renommage du dossier de contexte de `.vscode-context` à `vscode-context`
-- Amélioration de la capture des erreurs console
+- Renamed context folder from `vscode-context` to `ai-more-context`
+- Improved console error capture
 
 ## [1.0.0] - 2024-03-19
 
 ### Added
-- Capture du DOM
-- Capture des erreurs console
-- Capture des ressources
-- Capture d'écran
-- Communication WebSocket entre Chrome et VSCode
-- Stockage du contexte dans un dossier dédié
+- DOM capture
+- Console error capture
+- Resource capture
+- Screenshot capture
+- WebSocket communication between Chrome and VSCode
+- Context storage in a dedicated folder
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).

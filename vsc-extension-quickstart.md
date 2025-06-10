@@ -1,62 +1,60 @@
-# Guide de démarrage rapide - VSCode Context Enhancer
+# VSCode Extension Quickstart
 
-Ce guide vous aidera à démarrer rapidement avec l'extension VSCode Context Enhancer.
+This guide will help you get started with the AI More Context extension development.
 
-## Prérequis
+## Prerequisites
 
-- VSCode 1.60.0 ou supérieur
-- L'extension Chrome "VSCode Context Enhancer" installée
-- Node.js 14.x ou supérieur
+- Node.js
+- VSCode
+- Chrome
 
 ## Installation
 
-1. Installez l'extension depuis le VS Code Marketplace
-2. Installez l'extension Chrome correspondante
-3. Redémarrez VSCode
-
-## Utilisation rapide
-
-1. Ouvrez VSCode
-2. Appuyez sur `Cmd+Shift+P` (Mac) ou `Ctrl+Shift+P` (Windows/Linux)
-3. Tapez "Démarrer le serveur de contexte"
-4. Dans Chrome, naviguez sur la page à déboguer
-5. Cliquez sur l'icône de l'extension Chrome
-6. Le contexte est automatiquement capturé et envoyé à VSCode
-
-## Structure des fichiers de contexte
-
-Le contexte est stocké dans un dossier `vscode-context` à la racine de votre projet :
-
-- `current-context.md` : Résumé du contexte au format Markdown
-- `page.html` : HTML brut de la page
-- `console-errors.json` : Erreurs de console
-- `screenshot.png` : Capture d'écran (si disponible)
+1. Clone the repository
+2. Install dependencies
+3. Compile the extension
+4. Launch in debug mode
 
 ## Configuration
 
-L'extension peut être configurée via les paramètres de VSCode :
+The extension can be configured through VSCode settings:
 
-- `vscode-context-enhancer.port` : Port du serveur WebSocket (par défaut : 3000)
+- `ai-more-context.port`: WebSocket server port (default: 3000)
 
-## Dépannage
+## Troubleshooting
 
-### Le serveur ne démarre pas
-- Vérifiez que le port 3000 est disponible
-- Redémarrez VSCode
-- Vérifiez les logs dans la console de débogage
+### Common Issues
 
-### Pas de contexte reçu
-- Vérifiez que l'extension Chrome est installée
-- Vérifiez que le serveur est en cours d'exécution
-- Vérifiez la console de Chrome pour les erreurs
+1. **Server not starting**
+   - Check if port 3000 is available
+   - Verify Node.js installation
+   - Check console for errors
 
-### Erreurs de capture
-- Vérifiez les permissions de l'extension Chrome
-- Vérifiez que la page est accessible
-- Vérifiez les logs dans la console de débogage
+2. **Context not captured**
+   - Ensure Chrome extension is installed
+   - Check WebSocket connection
+   - Verify file permissions
 
-## Ressources
+3. **Extension not loading**
+   - Rebuild the extension
+   - Check VSCode logs
+   - Verify dependencies
 
-- [Documentation complète](https://github.com/arthurballan/vscode-add-context#readme)
-- [Signaler un problème](https://github.com/arthurballan/vscode-add-context/issues)
-- [Code source](https://github.com/arthurballan/vscode-add-context) 
+## Development
+
+### Commands
+
+- `Start Context Server`: Starts the WebSocket server
+- `Stop Context Server`: Stops the WebSocket server
+
+### Debugging
+
+1. Press F5 to launch in debug mode
+2. Set breakpoints in the code
+3. Use VSCode debug tools
+
+## Resources
+
+- [VSCode Extension API](https://code.visualstudio.com/api)
+- [Chrome Extension API](https://developer.chrome.com/docs/extensions/reference/)
+- [WebSocket API](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) 

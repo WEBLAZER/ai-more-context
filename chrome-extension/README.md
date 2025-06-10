@@ -1,89 +1,80 @@
-# Extension Chrome - VSCode Context Enhancer
+# AI More Context - Chrome Extension
 
-## Description
-Extension Chrome qui capture le contexte de développement web et l'envoie à VSCode pour améliorer l'expérience de débogage.
+This Chrome extension captures web development context and sends it to VSCode for enhanced debugging.
 
-## Fonctionnalités
+## Features
 
-### Capture de contexte
-- **DOM** : Structure HTML complète
-- **Console** : Erreurs et avertissements
-- **Ressources** : État des ressources
-- **Screenshot** : Capture d'écran
-
-### Types d'erreurs capturées
-1. **Erreurs JavaScript**
-   - Erreurs de référence (`undefinedVariable`)
-   - Erreurs de syntaxe
-   - Erreurs d'exécution
-
-2. **Erreurs de ressources**
-   - Images manquantes (404)
-   - Fichiers CSS manquants
-   - Scripts JavaScript manquants
-   - Erreurs réseau
-
-3. **Erreurs de promesses**
-   - Promesses non gérées
-   - Erreurs asynchrones
-
-4. **Erreurs de style**
-   - Fichiers CSS invalides
-   - Règles CSS mal formées
+- Captures DOM structure
+- Records console errors
+- Monitors resource loading
+- Takes screenshots
+- Sends context to VSCode
 
 ## Installation
 
-1. Ouvrez Chrome et accédez à `chrome://extensions/`
-2. Activez le "Mode développeur"
-3. Cliquez sur "Charger l'extension non empaquetée"
-4. Sélectionnez le dossier `chrome-extension`
+### From Chrome Web Store
+1. Visit the Chrome Web Store
+2. Click "Add to Chrome"
+3. Confirm installation
 
-## Développement
+### Manual Installation
+1. Download the extension
+2. Open Chrome and go to `chrome://extensions/`
+3. Enable "Developer mode"
+4. Click "Load unpacked"
+5. Select the extension folder
 
-### Structure des fichiers
-```
-chrome-extension/
-├── manifest.json     # Configuration de l'extension
-├── content.js        # Script de capture du contexte
-├── background.js     # Script de fond
-├── popup.html        # Interface utilisateur
-└── popup.js         # Logique de l'interface
-```
+## Usage
 
-### Compilation
+1. Install the VSCode extension
+2. Start the context server in VSCode
+3. Navigate to the page you want to debug
+4. Click the extension icon
+5. Context is automatically captured and sent to VSCode
+
+## Development
+
+### Prerequisites
+- Node.js
+- Chrome
+- VSCode extension installed
+
+### Setup
 ```bash
+# Install dependencies
 npm install
+
+# Build extension
 npm run build
 ```
 
-### Tests
-1. Ouvrez `test.html` dans Chrome
-2. Vérifiez la capture des erreurs dans la console
-3. Testez l'envoi du contexte à VSCode
+### Testing
+1. Load the extension in Chrome
+2. Open the developer tools
+3. Check the console for errors
+4. Test context capture
 
-## Améliorations futures
+## Configuration
 
-1. **Validation HTML**
-   - Détection des balises mal fermées
-   - Validation des attributs
-   - Structure HTML
+The extension connects to VSCode on port 3000 by default. This can be changed in VSCode settings.
 
-2. **Performance**
-   - Métriques de chargement
-   - Analyse des ressources
-   - First Contentful Paint
+## Troubleshooting
 
-3. **Accessibilité**
-   - Vérification des attributs alt
-   - Contraste des couleurs
-   - Structure de navigation
+If you encounter issues:
 
-4. **Sécurité**
-   - Mixed Content
-   - CSP violations
-   - Erreurs CORS
+1. Check if VSCode server is running
+2. Verify port 3000 is available
+3. Check Chrome console for errors
+4. Restart both extensions
 
-5. **Compatibilité**
-   - Support navigateur
-   - Polyfills
-   - API dépréciées 
+## Support
+
+For help and support:
+
+1. Open an issue on [GitHub](https://github.com/WEBLAZER/ai-more-context/issues)
+2. Check the [documentation](https://github.com/WEBLAZER/ai-more-context#readme)
+3. Contact the author
+
+## License
+
+MIT - See the [LICENSE](https://github.com/WEBLAZER/ai-more-context/blob/main/LICENSE) file for details. 

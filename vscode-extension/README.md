@@ -1,45 +1,52 @@
-# VSCode Context Enhancer
+# AI More Context - VSCode Extension
 
-## Description
-Extension VSCode qui reçoit et affiche le contexte de développement web capturé par l'extension Chrome correspondante. Cette extension améliore considérablement votre expérience de débogage en centralisant toutes les informations de contexte dans VSCode.
+This extension captures web development context to enhance your debugging experience in VSCode.
 
-## Fonctionnalités
+## Features
 
-### Capture de contexte en temps réel
-- **DOM** : Structure HTML complète et analyse
-- **Console** : Erreurs et avertissements JavaScript
-- **Ressources** : État des ressources et problèmes de chargement
-- **Screenshot** : Capture d'écran de la page
-
-### Gestion automatique des fichiers
-Crée et maintient un dossier `vscode-context` avec :
-- `current-context.md` : Contexte détaillé au format Markdown
-- `screenshot.png` : Capture d'écran de la page
-- `page.html` : Code HTML brut pour analyse
-- `console-errors.json` : Erreurs et avertissements de la console
+- Captures DOM structure
+- Records console errors
+- Monitors resource loading
+- Takes screenshots
+- Saves context in Markdown format
 
 ## Installation
 
-1. Ouvrez VSCode
-2. Appuyez sur `Cmd+Shift+P` (Mac) ou `Ctrl+Shift+P` (Windows/Linux)
-3. Tapez "Extensions: Install from VSIX"
-4. Sélectionnez le fichier `.vsix` de l'extension
+1. Install from VSIX file
+2. Restart VSCode
+3. Start the context server
 
-## Utilisation
+## Usage
 
-1. Démarrez l'extension avec la commande "Start Context Server"
-2. Le serveur WebSocket démarre automatiquement sur le port 3000
-3. Le contexte est reçu en temps réel de l'extension Chrome
-4. Les fichiers sont automatiquement sauvegardés dans le dossier `vscode-context`
+1. Press `Cmd+Shift+P` (Mac) or `Ctrl+Shift+P` (Windows/Linux)
+2. Type "Start Context Server"
+3. The server will start on port 3000
+4. Use the Chrome extension to capture context
+5. Context files will be saved in the `ai-more-context` folder
+
+## Configuration
+
+The extension can be configured in VSCode settings:
+
+- `ai-more-context.port`: WebSocket server port (default: 3000)
+
+## Troubleshooting
+
+If you encounter issues:
+
+1. Check if the server is running
+2. Verify Chrome extension installation
+3. Check console for errors
+4. Restart VSCode
 
 ## Support
 
-Si vous rencontrez des problèmes ou avez des suggestions :
-- Ouvrez une issue sur [GitHub](https://github.com/WEBLAZER/vscode-context-enhancer/issues)
-- Consultez la [documentation](https://github.com/WEBLAZER/vscode-context-enhancer#readme)
+For help and support:
 
-## Auteur
-Arthur Ballan
+1. Open an issue on [GitHub](https://github.com/WEBLAZER/ai-more-context/issues)
+2. Check the [documentation](https://github.com/WEBLAZER/ai-more-context#readme)
+3. Contact the author
 
-## Licence
-MIT - Voir le fichier [LICENSE](https://github.com/WEBLAZER/vscode-context-enhancer/blob/main/LICENSE) pour plus de détails. 
+## License
+
+MIT - See the [LICENSE](https://github.com/WEBLAZER/ai-more-context/blob/main/LICENSE) file for details. 

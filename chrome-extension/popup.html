@@ -2,37 +2,36 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <title>AI More Context</title>
     <style>
         body {
             width: 300px;
-            padding: 15px;
+            padding: 10px;
             font-family: Arial, sans-serif;
         }
         .status {
-            margin-top: 10px;
-            padding: 10px;
-            border-radius: 4px;
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
+            margin-bottom: 10px;
+            padding: 5px;
+            border-radius: 3px;
+            text-align: center;
         }
-        .status-text {
-            margin: 0;
-            font-size: 14px;
+        button {
+            width: 100%;
+            padding: 8px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
         }
-        .info {
-            font-size: 12px;
-            color: #6c757d;
-            margin-top: 10px;
+        button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <h2>VSCode Context Enhancer</h2>
-    <div id="status" class="status">
-        <p class="status-text">Extension active</p>
-    </div>
-    <p class="info">L'extension capture automatiquement le contexte de la page et l'envoie à VSCode.</p>
+    <div id="status" class="status">Checking connection...</div>
+    <button id="capture">Capture Context</button>
     <script src="popup.js"></script>
 </body>
 </html> 

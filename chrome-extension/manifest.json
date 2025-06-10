@@ -1,46 +1,51 @@
 {
   "manifest_version": 3,
-  "name": "VSCode Context Enhancer",
-  "version": "1.0.4",
-  "description": "Capture web development context (DOM, console errors, resources) to enhance debugging experience in VSCode",
+  "name": "AI More Context",
+  "version": "1.0",
+  "description": "Capture le contexte de développement pour l'IA",
   "permissions": [
     "activeTab",
     "scripting",
-    "webNavigation",
+    "storage",
     "tabs"
   ],
   "host_permissions": [
-    "http://*/*",
-    "https://*/*",
-    "file:///*"
+    "http://localhost:3000/*",
+    "<all_urls>"
   ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
       "16": "images/icon16.png",
+      "32": "images/icon32.png",
       "48": "images/icon48.png",
       "128": "images/icon128.png"
     }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "32": "images/icon32.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
   },
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": [
-        "http://*/*",
-        "https://*/*",
-        "file:///*"
-      ],
-      "js": ["content.js"],
-      "run_at": "document_start"
+      "matches": ["<all_urls>"],
+      "js": [
+        "lib/html2canvas.min.js",
+        "content.js"
+      ]
     }
   ],
-  "icons": {
-    "16": "images/icon16.png",
-    "48": "images/icon48.png",
-    "128": "images/icon128.png"
-  },
   "author": "WEBLAZER",
-  "homepage_url": "https://github.com/WEBLAZER/vscode-context-enhancer"
+  "homepage_url": "https://github.com/WEBLAZER/ai-more-context",
+  "web_accessible_resources": [
+    {
+      "resources": ["images/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 } 

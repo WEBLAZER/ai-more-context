@@ -1,30 +1,36 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const statusDiv = document.getElementById('status');
-    const statusText = statusDiv.querySelector('.status-text');
-
-    // Vérifier l'état de la connexion WebSocket
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        if (!tabs[0]) {
-            statusDiv.className = 'status disconnected';
-            statusText.textContent = 'Aucun onglet actif';
-            return;
+// Listen for DOM content loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // Get status element
+    const statusElement = document.getElementById('status');
+    
+    // Check connection status
+    chrome.runtime.sendMessage({action: 'getStatus'}, (response) => {
+        if (response && response.connected) {
+            statusElement.textContent = 'Connected to VSCode';
+        } else {
+            statusElement.textContent = 'Disconnected from VSCode';
         }
-
-        chrome.tabs.sendMessage(tabs[0].id, {action: 'getStatus'}, function(response) {
-            // Si pas de réponse, on considère que l'extension est active
-            // car le content script est chargé et fonctionne
-            if (chrome.runtime.lastError || !response) {
-                statusDiv.className = 'status connected';
-                statusText.textContent = 'Extension active';
-                return;
-            }
-
-            if (response.connected) {
-                statusDiv.className = 'status connected';
-                statusText.textContent = 'Connecté au serveur VSCode';
+    });
+    
+    // Listen for status updates
+    chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+        if (request.action === 'updateStatus') {
+            if (request.connected) {
+                statusElement.textContent = 'Connected to VSCode';
             } else {
-                statusDiv.className = 'status connected';
-                statusText.textContent = 'Extension active';
+                statusElement.textContent = 'Disconnected from VSCode';
+            }
+        }
+    });
+    
+    // Add click event listener to capture button
+    document.getElementById('capture').addEventListener('click', () => {
+        // Send message to background script to capture context
+        chrome.runtime.sendMessage({action: 'captureContext'}, (response) => {
+            if (response && response.success) {
+                console.log('Context captured successfully');
+            } else {
+                console.error('Error while capturing context:', response ? response.error : 'Unknown error');
             }
         });
     });

@@ -1,7 +1,7 @@
 {
-  "name": "vscode-context-enhancer",
+  "name": "ai-more-context",
   "version": "1.0.0",
-  "description": "A VS Code and Chrome extension to enhance context sharing",
+  "description": "A Chrome and VSCode extension to enhance context sharing for AI-powered development",
   "private": true,
   "workspaces": [
     "vscode-extension",
@@ -13,12 +13,14 @@
     "clean": "npm run clean --workspaces"
   },
   "keywords": [
-    "vscode",
+    "ai",
     "chrome",
+    "vscode",
     "extension",
-    "context"
+    "context",
+    "development"
   ],
-  "author": "",
+  "author": "WEBLAZER",
   "license": "MIT",
   "engines": {
     "node": ">=14.0.0"

@@ -1,148 +1,148 @@
-# VSCode Context Enhancer
+# AI More Context
 
-Une extension Chrome et VSCode qui capture le contexte de développement web pour améliorer l'expérience de débogage.
+A Chrome and VSCode extension that captures web development context to enhance the debugging experience.
 
-## Fonctionnalités
+## Features
 
-### Capture de contexte
-- **DOM** : Structure HTML complète de la page
-- **Console** : Erreurs et avertissements JavaScript
-- **Ressources** : État du chargement des ressources (images, scripts, styles)
-- **Screenshot** : Capture d'écran de la page
+### Context Capture
+- **DOM**: Complete HTML structure of the page
+- **Console**: JavaScript errors and warnings
+- **Resources**: Resource loading state (images, scripts, styles)
+- **Screenshot**: Page screenshot
 
-### Types d'erreurs capturées
-- Erreurs JavaScript (référence, syntaxe, exécution)
-- Erreurs de chargement de ressources (404, erreurs réseau)
-- Erreurs de promesses non gérées
-- Erreurs de style CSS
+### Captured Error Types
+- JavaScript errors (reference, syntax, execution)
+- Resource loading errors (404, network errors)
+- Unhandled promise errors
+- CSS style errors
 
-### Stockage du contexte
-- Crée un dossier `vscode-context`
-- Sauvegarde les fichiers :
-  - `current-context.md` : Contexte au format Markdown
-  - `screenshot.png` : Capture d'écran
-  - `page.html` : HTML brut
-  - `console-errors.json` : Erreurs de la console
+### Context Storage
+- Creates an `ai-more-context` folder
+- Saves files:
+  - `current-context.md`: Context in Markdown format
+  - `screenshot.png`: Screenshot
+  - `page.html`: Raw HTML
+  - `console-errors.json`: Console errors
 
 ## Installation
 
-### Extension Chrome
-1. Ouvrez Chrome et accédez à `chrome://extensions/`
-2. Activez le "Mode développeur"
-3. Cliquez sur "Charger l'extension non empaquetée"
-4. Sélectionnez le dossier `chrome-extension`
+### Chrome Extension
+1. Open Chrome and go to `chrome://extensions/`
+2. Enable "Developer mode"
+3. Click "Load unpacked extension"
+4. Select the `chrome-extension` folder
 
-### Extension VSCode
-1. Ouvrez VSCode
-2. Appuyez sur `Cmd+Shift+P` (Mac) ou `Ctrl+Shift+P` (Windows/Linux)
-3. Tapez "Extensions: Install from VSIX"
-4. Sélectionnez le fichier `.vsix` de l'extension
+### VSCode Extension
+1. Open VSCode
+2. Press `Cmd+Shift+P` (Mac) or `Ctrl+Shift+P` (Windows/Linux)
+3. Type "Extensions: Install from VSIX"
+4. Select the extension `.vsix` file
 
-## Utilisation
+## Usage
 
-1. Démarrez l'extension avec la commande "Start Context Server"
-2. Le serveur WebSocket démarre sur le port 3000
-3. Naviguez sur la page web à déboguer
-4. Cliquez sur l'icône de l'extension Chrome
-5. Le contexte est automatiquement capturé et envoyé à VSCode
-6. Les fichiers sont sauvegardés dans le dossier `vscode-context`
+1. Start the extension with the "Start Context Server" command
+2. The WebSocket server starts on port 3000
+3. Navigate to the web page to debug
+4. Click on the Chrome extension icon
+5. Context is automatically captured and sent to VSCode
+6. Files are saved in the `ai-more-context` folder
 
-## Structure du projet
+## Project Structure
 
 ```
-vscode-add-context/
-├── chrome-extension/     # Extension Chrome
-├── vscode-extension/     # Extension VSCode
+ai-more-context/
+├── chrome-extension/     # Chrome Extension
+├── vscode-extension/     # VSCode Extension
 │   ├── src/
-│   │   ├── extension.ts  # Point d'entrée de l'extension
-│   │   └── server.ts     # Serveur WebSocket
-│   ├── package.json      # Configuration et dépendances
-│   └── tsconfig.json     # Configuration TypeScript
-├── test/                 # Tests et exemples
-└── vscode-context/       # Dossier de stockage du contexte
+│   │   ├── extension.ts  # Extension entry point
+│   │   └── server.ts     # WebSocket server
+│   ├── package.json      # Configuration and dependencies
+│   └── tsconfig.json     # TypeScript configuration
+├── test/                 # Tests and examples
+└── ai-more-context/      # Context storage folder
 ```
 
-## Développement
+## Development
 
-### Prérequis
+### Prerequisites
 - Node.js
 - Chrome
 - VSCode
 
-### Installation des dépendances
+### Installing Dependencies
 ```bash
-# Extension Chrome
+# Chrome Extension
 cd chrome-extension
 npm install
 
-# Extension VSCode
+# VSCode Extension
 cd vscode-extension
 npm install
 ```
 
 ### Compilation
 ```bash
-# Extension Chrome
+# Chrome Extension
 cd chrome-extension
 npm run build
 
-# Extension VSCode
+# VSCode Extension
 cd vscode-extension
 npm run compile
 ```
 
-### Tests
-1. Appuyez sur F5 dans VSCode pour lancer en mode développement
-2. Vérifiez la réception du contexte
-3. Testez la sauvegarde des fichiers
+### Testing
+1. Press F5 in VSCode to launch in development mode
+2. Check context reception
+3. Test file saving
 
-## Améliorations futures
+## Future Improvements
 
-1. **Interface utilisateur**
-   - Panneau dédié au contexte
-   - Navigation dans les fichiers
-   - Filtrage des erreurs
+1. **User Interface**
+   - Dedicated context panel
+   - File navigation
+   - Error filtering
 
-2. **Intégration IA**
-   - Analyse automatique des erreurs
-   - Suggestions de correction
-   - Documentation contextuelle
+2. **AI Integration**
+   - Automatic error analysis
+   - Correction suggestions
+   - Contextual documentation
 
-3. **Gestion des versions**
-   - Historique du contexte
-   - Comparaison des versions
-   - Restauration du contexte
+3. **Version Management**
+   - Context history
+   - Version comparison
+   - Context restoration
 
-4. **Personnalisation**
-   - Configuration des types d'erreurs
-   - Filtres personnalisés
-   - Thèmes d'affichage
+4. **Customization**
+   - Error type configuration
+   - Custom filters
+   - Display themes
 
 5. **Performance**
-   - Compression des données
-   - Mise en cache
-   - Optimisation du stockage
+   - Data compression
+   - Caching
+   - Storage optimization
 
-## Contribution
+## Contributing
 
-Les contributions sont les bienvenues ! N'hésitez pas à :
-1. Fork le projet
-2. Créer une branche pour votre fonctionnalité
-3. Commiter vos changements
-4. Pousser vers la branche
-5. Ouvrir une Pull Request
+Contributions are welcome! Feel free to:
+1. Fork the project
+2. Create a branch for your feature
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
 
-## Licence
+## License
 
-MIT - Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+MIT - See the [LICENSE](LICENSE) file for details.
 
-## Auteur
+## Author
 
 [Arthur Ballan](https://github.com/WEBLAZER)
 
 ## Support
 
-Si vous rencontrez des problèmes ou avez des suggestions :
-1. Ouvrez une issue sur GitHub
-2. Contactez l'auteur
-3. Consultez la documentation
+If you encounter issues or have suggestions:
+1. Open an issue on GitHub
+2. Contact the author
+3. Check the documentation
