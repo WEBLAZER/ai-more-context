@@ -1,10 +1,10 @@
-// Initialisation de la capture d'erreurs
+// Initialize error capture
 console.log('Initializing error capture...');
 
-// Stockage des erreurs
-    window.consoleErrors = [];
+// Error storage
+window.consoleErrors = [];
 
-// Fonction de capture d'erreur
+// Error capture function
 function captureError(error, type, source) {
     const errorObj = {
         message: error.message,
@@ -18,7 +18,7 @@ function captureError(error, type, source) {
     console.log('Error captured, total:', window.consoleErrors.length);
 }
 
-// Capture des erreurs JavaScript
+// Capture JavaScript errors
 window.addEventListener('error', function(event) {
     if (event.error) {
         let type = 'javascript';
@@ -37,7 +37,7 @@ window.addEventListener('error', function(event) {
     }
 });
 
-// Capture des violations de performance
+// Capture performance violations
 if (window.PerformanceObserver) {
     const performanceObserver = new PerformanceObserver((list) => {
         list.getEntries().forEach(entry => {
@@ -51,7 +51,7 @@ if (window.PerformanceObserver) {
     });
 }
 
-// Capture des violations de console
+// Capture console violations
 const originalConsoleWarn = console.warn;
 console.warn = function(...args) {
     const message = args.join(' ');
@@ -63,12 +63,12 @@ console.warn = function(...args) {
     originalConsoleWarn.apply(console, args);
 };
 
-// Capture des erreurs de console
-    const originalConsole = {
-        error: console.error,
-        warn: console.warn,
-        log: console.log
-    };
+// Capture console errors
+const originalConsole = {
+    error: console.error,
+    warn: console.warn,
+    log: console.log
+};
 
 console.error = function(...args) {
     originalConsole.error.apply(console, args);
@@ -76,51 +76,51 @@ console.error = function(...args) {
     captureError(new Error(message), 'console', window.location.href);
 };
 
-// Capture des erreurs globales
-    window.addEventListener('error', function(event) {
+// Capture global errors
+window.addEventListener('error', function(event) {
     console.log('Global error caught:', event);
     captureError(event.error || new Error(event.message), 'global', event.filename);
-    }, true);
+}, true);
 
-// Capture des erreurs de ressources
+// Capture resource errors
 window.addEventListener('load', function() {
     console.log('Page loaded, checking for resource errors...');
     
-    // Vérifier les images
+    // Check images
     document.querySelectorAll('img').forEach(img => {
         if (!img.complete || img.naturalHeight === 0) {
             captureError(new Error(`Failed to load image: ${img.src}`), 'resource', img.src);
         }
     });
     
-    // Vérifier les scripts
+    // Check scripts
     document.querySelectorAll('script').forEach(script => {
         if (script.src && !script.complete) {
             captureError(new Error(`Failed to load script: ${script.src}`), 'resource', script.src);
         }
     });
     
-    // Vérifier les styles
+    // Check styles
     document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
-        // Vérifier si la feuille de style a été chargée
+        // Check if stylesheet was loaded
         if (link.href && !link.sheet) {
             captureError(new Error(`Failed to load stylesheet: ${link.href}`), 'resource', link.href);
         }
         
-        // Ajouter un écouteur d'événement pour les erreurs de chargement
+        // Add event listener for loading errors
         link.addEventListener('error', function(event) {
             captureError(new Error(`Failed to load stylesheet: ${link.href}`), 'resource', link.href);
         });
     });
 
-    // Vérifier les styles inline
+    // Check inline styles
     document.querySelectorAll('style').forEach(style => {
         try {
-            // Vérifier si le style est valide
+            // Check if style is valid
             const sheet = style.sheet;
             if (sheet) {
                 try {
-                    // Essayer d'accéder aux règles pour vérifier la validité
+                    // Try to access rules to check validity
                     Array.from(sheet.cssRules);
                 } catch (e) {
                     captureError(new Error(`Invalid CSS in style tag: ${e.message}`), 'style', 'inline');
@@ -131,13 +131,13 @@ window.addEventListener('load', function() {
         }
     });
 
-    // Vérifier les feuilles de style existantes
+    // Check existing stylesheets
     Array.from(document.styleSheets).forEach(sheet => {
         try {
-            // Vérifier si la feuille de style est accessible
+            // Check if stylesheet is accessible
             if (sheet.href) {
                 try {
-                    // Essayer d'accéder aux règles
+                    // Try to access rules
                     Array.from(sheet.cssRules);
                 } catch (e) {
                     if (e.name === 'SecurityError') {
@@ -152,7 +152,7 @@ window.addEventListener('load', function() {
         }
     });
 
-    // Vérifier les médias
+    // Check media
     document.querySelectorAll('video, audio').forEach(media => {
         if (media.error) {
             captureError(new Error(`Media error: ${media.error.message}`), 'media', media.src);
@@ -160,14 +160,14 @@ window.addEventListener('load', function() {
     });
 });
 
-// Capture du contexte
+// Capture context
 window.addEventListener('load', async function() {
     try {
         console.log('Capturing context...');
         const context = await captureContext();
         
         if (context) {
-            // Ajouter les erreurs au contexte
+            // Add errors to context
             context.errors = window.consoleErrors;
             context.errorsCount = window.consoleErrors.length;
             
@@ -179,7 +179,7 @@ window.addEventListener('load', async function() {
     }
 });
 
-// Capture des erreurs de style en temps réel
+// Capture style errors in real-time
 const styleObserver = new MutationObserver((mutations) => {
     mutations.forEach(mutation => {
         mutation.addedNodes.forEach(node => {
@@ -206,17 +206,17 @@ const styleObserver = new MutationObserver((mutations) => {
 });
 
 styleObserver.observe(document.documentElement, {
-        childList: true,
-        subtree: true
-    });
+    childList: true,
+    subtree: true
+});
 
-    // Fonction pour capturer le contexte
-    async function captureContext() {
+// Function to capture context
+async function captureContext() {
     console.log('Capturing context...');
     const context = {
-            url: window.location.href,
-            title: document.title,
-            html: document.documentElement.outerHTML,
+        url: window.location.href,
+        title: document.title,
+        html: document.documentElement.outerHTML,
         styles: Array.from(document.styleSheets).map(sheet => sheet.href).filter(Boolean),
         scripts: Array.from(document.scripts).map(script => script.src).filter(Boolean),
         images: Array.from(document.images).map(img => img.src),
@@ -228,7 +228,7 @@ styleObserver.observe(document.documentElement, {
     return context;
 }
 
-// Fonction pour envoyer le contexte au serveur VSCode
+// Function to send context to VSCode server
 async function sendContextToVSCode(context) {
     try {
         console.log('Sending context to VSCode server:', context);
@@ -249,19 +249,19 @@ async function sendContextToVSCode(context) {
         console.log('Context sent successfully:', result);
         return result;
     } catch (error) {
-        console.error('Error sending context to VSCode:', error);
+        console.error('Error sending context:', error);
         throw error;
     }
 }
 
-// Capture des erreurs de promesses non gérées
+// Capture unhandled promises
 window.addEventListener('unhandledrejection', function(event) {
     const error = event.reason instanceof Error ? event.reason : new Error(event.reason);
     error.stack = event.reason instanceof Error ? event.reason.stack : new Error().stack;
     captureError(error, 'promise', error.stack);
 });
 
-// Capture des erreurs de timeout
+// Capture timeout errors
 const originalSetTimeout = window.setTimeout;
 window.setTimeout = function(callback, delay, ...args) {
     const wrappedCallback = function() {
@@ -276,7 +276,7 @@ window.setTimeout = function(callback, delay, ...args) {
     return originalSetTimeout.call(this, wrappedCallback, delay);
 };
 
-// Capture des erreurs d'intervalle
+// Capture interval errors
 const originalSetInterval = window.setInterval;
 window.setInterval = function(callback, delay, ...args) {
     const wrappedCallback = function() {
@@ -291,7 +291,7 @@ window.setInterval = function(callback, delay, ...args) {
     return originalSetInterval.call(this, wrappedCallback, delay);
 };
 
-// Capture des erreurs de requêtes réseau
+// Capture network errors
 const originalFetch = window.fetch;
 window.fetch = function(input, init) {
     const startTime = performance.now();
@@ -312,7 +312,7 @@ window.fetch = function(input, init) {
         });
 };
 
-// Capture des erreurs de localStorage
+// Capture localStorage errors
 try {
     localStorage.setItem('test', 'test');
     localStorage.removeItem('test');
@@ -320,7 +320,7 @@ try {
     captureError(new Error('localStorage is not available: ' + e.message), 'storage', 'localStorage');
 }
 
-// Capture des erreurs de sessionStorage
+// Capture sessionStorage errors
 try {
     sessionStorage.setItem('test', 'test');
     sessionStorage.removeItem('test');
@@ -328,7 +328,7 @@ try {
     captureError(new Error('sessionStorage is not available: ' + e.message), 'storage', 'sessionStorage');
 }
 
-// Capture des erreurs de WebSocket
+// Capture WebSocket errors
 const originalWebSocket = window.WebSocket;
 window.WebSocket = function(url, protocols) {
     const ws = new originalWebSocket(url, protocols);
@@ -338,7 +338,7 @@ window.WebSocket = function(url, protocols) {
     return ws;
 };
 
-// Capture des erreurs de XMLHttpRequest
+// Capture XMLHttpRequest errors
 const originalXHROpen = XMLHttpRequest.prototype.open;
 XMLHttpRequest.prototype.open = function(method, url) {
     this.addEventListener('error', function(event) {
@@ -347,7 +347,7 @@ XMLHttpRequest.prototype.open = function(method, url) {
     return originalXHROpen.apply(this, arguments);
 };
 
-// Capture des erreurs de IndexedDB
+// Capture IndexedDB errors
 if (window.indexedDB) {
     const request = indexedDB.open('test');
     request.onerror = function(event) {
@@ -359,7 +359,7 @@ if (window.indexedDB) {
     };
 }
 
-// Capture des erreurs de Service Worker
+// Capture Service Worker errors
 if ('serviceWorker' in navigator) {
     try {
         navigator.serviceWorker.getRegistrations().then(registrations => {
@@ -376,7 +376,7 @@ if ('serviceWorker' in navigator) {
     }
 }
 
-// Capture des erreurs de Web Workers
+// Capture Web Workers errors
 if (window.Worker) {
     const originalWorker = window.Worker;
     window.Worker = function(scriptURL) {
@@ -388,7 +388,7 @@ if (window.Worker) {
     };
 }
 
-// Capture des erreurs de WebGL
+// Capture WebGL errors
 if (window.WebGLRenderingContext) {
     const canvas = document.createElement('canvas');
     const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
@@ -400,7 +400,7 @@ if (window.WebGLRenderingContext) {
     }
 }
 
-// Capture des erreurs de Media
+// Capture media errors
 const mediaObserver = new MutationObserver((mutations) => {
     mutations.forEach(mutation => {
         mutation.addedNodes.forEach(node => {
@@ -436,12 +436,12 @@ mediaObserver.observe(document.documentElement, {
     subtree: true
 });
 
-// Fonction pour initialiser la capture d'erreurs
+// Function to initialize error capture
 function initializeErrorCapture() {
     console.log('Initializing error capture...');
     window.consoleErrors = [];
 
-    // Capturer les erreurs de console
+    // Capture console errors
     window.addEventListener('error', (event) => {
         console.log('Error captured:', event);
         const error = {
@@ -462,7 +462,7 @@ function initializeErrorCapture() {
         console.log('Error added to consoleErrors:', error);
     });
 
-    // Capturer les erreurs de ressource
+    // Capture resource errors
     window.addEventListener('error', (event) => {
         if (event.target instanceof HTMLImageElement || 
             event.target instanceof HTMLScriptElement || 
@@ -492,7 +492,7 @@ function initializeErrorCapture() {
         }
     }, true);
 
-    // Capturer les erreurs de console.log
+    // Capture console.log errors
     const originalConsoleError = console.error;
     console.error = function(...args) {
         console.log('Console error captured:', args);
@@ -509,7 +509,7 @@ function initializeErrorCapture() {
         originalConsoleError.apply(console, args);
     };
 
-    // Capturer les erreurs de Service Worker
+    // Capture Service Worker errors
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.addEventListener('error', (event) => {
             console.log('Service Worker error captured:', event);
@@ -530,10 +530,10 @@ function initializeErrorCapture() {
     console.log('Error capture initialized');
 }
 
-// Initialiser la capture d'erreurs
+// Initialize error capture
 initializeErrorCapture();
 
-// Capturer et envoyer le contexte
+// Capture and send context
 async function captureAndSendContext() {
     try {
         const context = await captureContext();
@@ -543,8 +543,8 @@ async function captureAndSendContext() {
     }
 }
 
-// Capturer et envoyer le contexte au chargement de la page
+// Capture and send context on page load
 document.addEventListener('DOMContentLoaded', captureAndSendContext);
 
-// Capturer et envoyer le contexte toutes les 5 secondes
+// Capture and send context every 5 seconds
 setInterval(captureAndSendContext, 5000);

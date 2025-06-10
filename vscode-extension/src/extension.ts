@@ -78,7 +78,7 @@ async function startServer() {
             throw new Error('No workspace folder found');
         }
 
-        // Créer le dossier context s'il n'existe pas
+        // Create context directory if it doesn't exist
         const contextDir = path.join(workspaceFolders[0].uri.fsPath, 'context');
         console.log('Context directory path:', contextDir);
         
@@ -87,23 +87,23 @@ async function startServer() {
             fs.mkdirSync(contextDir, { recursive: true });
         }
 
-        // Configuration du serveur HTTP
+        // HTTP server configuration
         const httpServer = http.createServer((req, res) => {
-            // Configurer les en-têtes CORS
+            // Configure CORS headers
             const corsHeaders = {
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
                 'Access-Control-Allow-Headers': 'Content-Type'
             };
 
-            // Gérer les requêtes OPTIONS pour le CORS
+            // Handle OPTIONS requests for CORS
             if (req.method === 'OPTIONS') {
                 res.writeHead(204, corsHeaders);
                 res.end();
                 return;
             }
 
-            // Gestion des erreurs
+            // Error handling
             if (req.url === '/errors' && req.method === 'POST') {
                 let body = '';
                 req.on('data', chunk => {
@@ -128,11 +128,11 @@ async function startServer() {
 
                         console.log('Processing errors:', errors.length, 'errors received');
                         
-                        // Vérifier que le dossier existe
+                        // Check if directory exists
                         const contextDir = path.join(workspaceFolders[0].uri.fsPath, 'context');
                         await fs.promises.mkdir(contextDir, { recursive: true });
                         
-                        // Sauvegarder les erreurs
+                        // Save errors
                         const errorsFile = path.join(contextDir, 'console-errors.json');
                         await fs.promises.writeFile(errorsFile, JSON.stringify(errors, null, 2));
                         
@@ -156,7 +156,7 @@ async function startServer() {
                 return;
             }
 
-            // Gestion des requêtes POST
+            // Handle POST requests
             if (req.method === 'POST') {
                 let body = '';
                 req.on('data', chunk => {
@@ -165,7 +165,7 @@ async function startServer() {
 
                 req.on('end', async () => {
                     try {
-                        // Vérifier si c'est une requête de contexte
+                        // Check if it's a context request
                         if (req.url === '/context') {
                             console.log('Received context request');
                             const context = JSON.parse(body);
@@ -212,11 +212,11 @@ async function startServer() {
             }
         });
 
-        // Création du serveur WebSocket
+        // Create WebSocket server
         const wsServer = new WebSocket.Server({ server: httpServer });
 
         wsServer.on('connection', (ws: WebSocket) => {
-            console.log('Nouvelle connexion WebSocket établie');
+            console.log('New WebSocket connection established');
             ws.on('message', (message: string) => {
                 try {
                     const data = JSON.parse(message);
@@ -224,31 +224,31 @@ async function startServer() {
                         processContext(data.context);
                     }
                 } catch (error) {
-                    console.error('Erreur lors du traitement du message WebSocket:', error);
+                    console.error('Error processing WebSocket message:', error);
                 }
             });
         });
 
-        // Démarrer le serveur
+        // Start server
         httpServer.listen(3000, () => {
-            vscode.window.showInformationMessage(`Capture de contexte active sur le port 3000`);
-            statusBarItem.text = '$(radio-tower) Contexte actif';
+            vscode.window.showInformationMessage(`Context capture active on port 3000`);
+            statusBarItem.text = '$(radio-tower) Context active';
         });
     } catch (error) {
-        console.error('Erreur lors de la démarrage du serveur:', error);
-        vscode.window.showErrorMessage('Erreur lors de la démarrage du serveur: ' + (error instanceof Error ? error.message : 'Unknown error'));
+        console.error('Error starting server:', error);
+        vscode.window.showErrorMessage('Error starting server: ' + (error instanceof Error ? error.message : 'Unknown error'));
     }
 }
 
 export async function activate(context: vscode.ExtensionContext) {
-    console.log('Extension AI More Context activée');
+    console.log('AI More Context extension activated');
 
-    // Création de l'élément de la barre d'état
+    // Create status bar item
     statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
     statusBarItem.command = 'ai-more-context.startServer';
     context.subscriptions.push(statusBarItem);
 
-    // Vérifier si le dossier de contexte existe
+    // Check if context directory exists
     const workspaceFolders = vscode.workspace.workspaceFolders;
     if (workspaceFolders) {
         const contextDir = path.join(workspaceFolders[0].uri.fsPath, 'context');
@@ -257,125 +257,125 @@ export async function activate(context: vscode.ExtensionContext) {
         }
     }
 
-    // Enregistrer les commandes
+    // Register commands
     let startServerCommand = vscode.commands.registerCommand('ai-more-context.startServer', async () => {
-        console.log('Commande startServer exécutée');
+        console.log('startServer command executed');
         if (server) {
-            vscode.window.showInformationMessage('La capture de contexte est déjà active');
+            vscode.window.showInformationMessage('Context capture is already active');
             return;
         }
         await startServer();
     });
 
     let stopServerCommand = vscode.commands.registerCommand('ai-more-context.stopServer', () => {
-        console.log('Commande stopServer exécutée');
+        console.log('stopServer command executed');
         if (server) {
             server.close(() => {
                 server = undefined;
-                vscode.window.showInformationMessage('Capture de contexte arrêtée');
+                vscode.window.showInformationMessage('Context capture stopped');
                 statusBarItem.hide();
             });
         }
     });
 
-    // Ajouter les commandes aux subscriptions
+    // Add commands to subscriptions
     context.subscriptions.push(startServerCommand, stopServerCommand);
 
-    // Démarrer automatiquement le serveur
+    // Start server automatically
     await startServer();
 }
 
 function processContext(context: Context) {
     try {
-    console.log('Traitement du contexte...');
+    console.log('Processing context...');
     const workspaceFolders = vscode.workspace.workspaceFolders;
     if (!workspaceFolders) {
             throw new Error('No workspace folder found');
     }
 
         const contextDir = path.join(workspaceFolders[0].uri.fsPath, 'context');
-    console.log('Dossier de contexte:', contextDir);
+    console.log('Context directory:', contextDir);
     
-        // Créer le dossier s'il n'existe pas
+        // Create directory if it doesn't exist
         if (!fs.existsSync(contextDir)) {
-            console.log('Création du dossier de contexte');
+            console.log('Creating context directory');
             fs.mkdirSync(contextDir, { recursive: true });
     }
 
-    // Sauvegarder le contexte au format Markdown
+    // Save context as Markdown
     const contextFile = path.join(contextDir, 'current-context.md');
-    console.log('Sauvegarde du contexte Markdown:', contextFile);
+    console.log('Saving context Markdown:', contextFile);
     fs.writeFileSync(contextFile, formatContextForAI(context));
 
-    // Sauvegarder le HTML brut
+    // Save raw HTML
     const htmlFile = path.join(contextDir, 'page.html');
-    console.log('Sauvegarde du HTML:', htmlFile);
+    console.log('Saving HTML:', htmlFile);
     fs.writeFileSync(htmlFile, context.dom.html);
 
-    // Sauvegarder les erreurs console
+    // Save console errors
         const errors = context.errors || context.consoleErrors || [];
         if (errors.length > 0) {
     const errorsFile = path.join(contextDir, 'console-errors.json');
-    console.log('Sauvegarde des erreurs console:', errorsFile);
-            console.log('Nombre d\'erreurs:', errors.length);
-            console.log('Erreurs:', JSON.stringify(errors, null, 2));
+    console.log('Saving console errors:', errorsFile);
+            console.log('Number of errors:', errors.length);
+            console.log('Errors:', JSON.stringify(errors, null, 2));
             fs.writeFileSync(errorsFile, JSON.stringify(errors, null, 2));
         } else {
-            console.log('Aucune erreur à sauvegarder');
+            console.log('No errors to save');
         }
 
-    // Ajouter le contexte au chat de l'IA si possible
+    // Add context to AI chat if possible
     addContextToAIChat(context);
     } catch (error) {
-        console.error('Erreur lors du traitement du contexte:', error);
-        vscode.window.showErrorMessage('Erreur lors du traitement du contexte: ' + (error instanceof Error ? error.message : 'Unknown error'));
+        console.error('Error processing context:', error);
+        vscode.window.showErrorMessage('Error processing context: ' + (error instanceof Error ? error.message : 'Unknown error'));
     }
 }
 
 function addContextToAIChat(context: Context) {
-    // Note: Cette fonction est un placeholder pour l'intégration future avec l'IA
-    // L'implémentation exacte dépendra de l'API de l'IA de Cursor/VSCode
+    // Note: This function is a placeholder for future integration with AI
+    // Exact implementation will depend on the API of the Cursor/VSCode AI
     const contextText = formatContextForAI(context);
     
-    // Pour l'instant, on affiche juste une notification
-    vscode.window.showInformationMessage('Contexte mis à jour et prêt pour l\'IA');
+    // For now, just show a notification
+    vscode.window.showInformationMessage('Context updated and ready for AI');
 }
 
 function formatContextForAI(context: Context): string {
-    return `# Contexte de Développement Web
+    return `# Web Development Context
 
-## Informations de la Page
+## Page Information
 - URL: ${context.dom.url}
-- Titre: ${context.dom.title}
+- Title: ${context.dom.title}
 
-## Structure du DOM
-- Nombre total d'éléments: ${context.dom.html.split('<').length - 1}
+## DOM Structure
+- Total elements: ${context.dom.html.split('<').length - 1}
 - Scripts: ${context.scriptsCount}
 - Styles: ${context.stylesCount}
 - Images: ${context.imagesCount}
 
-## Métadonnées
+## Metadata
 ${context.dom.meta?.viewport ? `- Viewport: ${context.dom.meta.viewport}` : ''}
 ${context.dom.meta?.description ? `- Description: ${context.dom.meta.description}` : ''}
-${context.dom.meta?.keywords ? `- Mots-clés: ${context.dom.meta.keywords}` : ''}
+${context.dom.meta?.keywords ? `- Keywords: ${context.dom.meta.keywords}` : ''}
 
-## Feuilles de Style
+## Styles
 ${context.styles?.map(style => 
-    `- ${style.href || 'Style inline'}${style.rules ? ` (${style.rules.length} règles)` : ''}${style.error ? ` - ${style.error}` : ''}`
-).join('\n') || 'Aucune feuille de style'}
+    `- ${style.href || 'Inline Style'}${style.rules ? ` (${style.rules.length} rules)` : ''}${style.error ? ` - ${style.error}` : ''}`
+).join('\n') || 'No styles'}
 
-## Erreurs Console
+## Console Errors
 ${context.errors?.length > 0 
     ? context.errors.map(err => `- [${err.type}] ${err.message} (${err.source})`).join('\n')
-    : 'Aucune erreur'}
+    : 'No errors'}
 
-## Fichiers Disponibles
-- HTML brut: \`context/page.html\`
-- Erreurs console: \`context/console-errors.json\`
+## Available Files
+- Raw HTML: \`context/page.html\`
+- Console errors: \`context/console-errors.json\`
 `;
 }
 
-// Fonction pour générer le Markdown
+// Function to generate Markdown
 function generateMarkdown(context: any): string {
     const lines: string[] = [];
     
@@ -392,7 +392,7 @@ function generateMarkdown(context: any): string {
         lines.push(`Total errors: ${context.errors.length}`);
         lines.push('');
 
-        // Grouper les erreurs par type
+        // Group errors by type
         const errorsByType = context.errors.reduce((acc: { [key: string]: any[] }, error: any) => {
             if (!acc[error.type]) {
                 acc[error.type] = [];
@@ -401,7 +401,7 @@ function generateMarkdown(context: any): string {
             return acc;
         }, {});
 
-        // Afficher les erreurs par type
+        // Display errors by type
         for (const [type, errors] of Object.entries(errorsByType) as [string, any[]][]) {
             lines.push(`### ${type.charAt(0).toUpperCase() + type.slice(1)} Errors (${errors.length})`);
             lines.push('');
@@ -455,7 +455,7 @@ function generateMarkdown(context: any): string {
     return lines.join('\n');
 }
 
-// Fonction pour sauvegarder les erreurs
+// Function to save errors
 async function saveErrors(errors: any[], contextDir: string): Promise<void> {
     try {
         if (!errors || errors.length === 0) {
@@ -479,24 +479,24 @@ async function saveErrors(errors: any[], contextDir: string): Promise<void> {
     }
 }
 
-// Fonction pour sauvegarder le contexte
+// Function to save context
 async function saveContext(context: any, contextDir: string): Promise<void> {
     try {
-        // Créer le répertoire s'il n'existe pas
+        // Create directory if it doesn't exist
         await fs.promises.mkdir(contextDir, { recursive: true });
 
-        // Sauvegarder le HTML
+        // Save HTML
         const htmlPath = path.join(contextDir, 'page.html');
         await fs.promises.writeFile(htmlPath, context.html, 'utf8');
         console.log('HTML saved to:', htmlPath);
 
-        // Sauvegarder le contexte en Markdown
+        // Save context as Markdown
         const markdownPath = path.join(contextDir, 'current-context.md');
         const markdown = generateMarkdown(context);
         await fs.promises.writeFile(markdownPath, markdown, 'utf8');
         console.log('Markdown saved to:', markdownPath);
 
-        // Sauvegarder les erreurs si présentes
+        // Save errors if present
         if (context.errors && context.errors.length > 0) {
             await saveErrors(context.errors, contextDir);
         } else {
